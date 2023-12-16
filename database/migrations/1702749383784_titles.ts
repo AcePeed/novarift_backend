@@ -11,6 +11,8 @@ export default class extends BaseSchema {
       table.boolean('isMovie').notNullable()
       table.integer('status').defaultTo(0)
 
+      table.text('keywords')
+
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
