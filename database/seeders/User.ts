@@ -16,6 +16,17 @@ export default class extends BaseSeeder {
         admin: true,
         superuser: true,
       },
+      {
+        fname: 'Mohammed',
+        lname: 'Benmansour',
+        email: 'benmansour.mohammed_test@gmail.com',
+
+        display: 'AcePeaX',
+        login: 'test',
+        password: 'test',
+
+        admin: false,
+      },
     ])
   }
 }

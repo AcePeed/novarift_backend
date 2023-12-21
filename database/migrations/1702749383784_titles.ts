@@ -8,10 +8,13 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('name').notNullable().unique()
       table.text('details')
-      table.boolean('isMovie').notNullable()
+      table.boolean('is_movie').notNullable()
+      table.string('production_company').notNullable()
+      table.specificType('producers', 'text[]').notNullable().defaultTo('{}')
+      table.specificType('main_cast', 'text[]').notNullable().defaultTo('{}')
+      table.specificType('keywords', 'text[]').notNullable().defaultTo('{}')
+      table.string('all_keywords').notNullable().defaultTo('')
       table.integer('status').defaultTo(0)
-
-      table.text('keywords')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

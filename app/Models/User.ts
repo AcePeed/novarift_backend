@@ -20,7 +20,7 @@ export default class User extends BaseModel {
   public email: string
 
   @column()
-  public display: string
+  public display: string = ''
 
   @column()
   public login: string
@@ -29,10 +29,10 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public admin: boolean
+  public admin: boolean = false
 
   @column()
-  public superuser: boolean
+  public superuser: boolean = false
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -104,6 +104,7 @@ const corsConfig: CorsConfig = {
     'expires',
     'last-modified',
     'pragma',
+    'set-cookie',
   ],
 
   /*
