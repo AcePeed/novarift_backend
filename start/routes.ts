@@ -28,3 +28,5 @@ Route.get('/', async () => {
 Route.get('user', 'UsersController.check')
 Route.post('user', 'UsersController.login')
 Route.post('user/register', 'UsersController.register')
+
+Route.get('poster/:path', 'FileSystemController.poster')
