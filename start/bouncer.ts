@@ -6,6 +6,7 @@
  */
 
 import Bouncer from '@ioc:Adonis/Addons/Bouncer'
+import User from 'App/Models/User'
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,17 @@ import Bouncer from '@ioc:Adonis/Addons/Bouncer'
 | NOTE: Always export the "actions" const from this file
 |****************************************************************
 */
-export const { actions } = Bouncer
+export const { actions } = Bouncer.define('viewContent', (user: User | null) => {
+  if (user === null) {
+    return Bouncer.deny('Not connected', 404)
+  }
+  return true
+}).define('viewAdmin', (user: User) => {
+  if (user.admin !== true) {
+    return Bouncer.deny("You don't have permissions to access that resource", 404)
+  }
+  return user.admin === true
+})
 
 /*
 |--------------------------------------------------------------------------

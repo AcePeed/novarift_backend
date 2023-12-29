@@ -6,7 +6,9 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('episode_id').notNullable()
+
+      table.integer('episode_id').notNullable().references('episodes.id').onDelete('CASCADE')
+
       table.string('path').notNullable()
       table.string('audio_language')
       table.string('encoder')

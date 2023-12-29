@@ -5,8 +5,8 @@ export default class extends BaseSchema {
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.integer('user_id').notNullable()
-      table.integer('title_id').notNullable()
+      table.integer('user_id').notNullable().references('users.id').onDelete('CASCADE')
+      table.integer('title_id').notNullable().references('titles.id').onDelete('CASCADE')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
