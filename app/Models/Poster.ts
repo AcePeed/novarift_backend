@@ -1,6 +1,5 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import Title from './Title'
 
 export default class Poster extends BaseModel {
   @column({ isPrimary: true })
@@ -9,11 +8,14 @@ export default class Poster extends BaseModel {
   @column()
   public path: string
 
-  /*@column()
-  public userId: number
+  @column()
+  public titleId: number
 
-  @belongsTo(() => Title, { foreignKey: 'userId' })
-  public idk: BelongsTo<Title>*/
+  @column()
+  public language: string = '*'
+
+  @column()
+  public status: number = 0
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

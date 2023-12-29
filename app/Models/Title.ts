@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, beforeSave, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, HasMany, beforeSave, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Poster from './Poster'
+import Episode from './Episode'
 
 export default class Title extends BaseModel {
   @column({ isPrimary: true })
@@ -28,6 +30,12 @@ export default class Title extends BaseModel {
 
   @column()
   public allKeywords: string
+
+  @hasMany(() => Episode)
+  public episodes: HasMany<typeof Episode>
+
+  @hasMany(() => Poster)
+  public posters: HasMany<typeof Poster>
 
   @column()
   public status: number = 0

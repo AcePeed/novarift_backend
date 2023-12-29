@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Episode from './Episode'
 
 export default class Video extends BaseModel {
   @column({ isPrimary: true })
@@ -19,6 +20,9 @@ export default class Video extends BaseModel {
 
   @column()
   public status: number
+
+  @hasMany(() => Episode)
+  public posters: HasMany<typeof Episode>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

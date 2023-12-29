@@ -2,6 +2,7 @@ import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Title from 'App/Models/Title'
 import Episode from 'App/Models/Episode'
 import Video from 'App/Models/Video'
+import Poster from 'App/Models/Poster'
 
 export default class extends BaseSeeder {
   public async run() {
@@ -44,6 +45,15 @@ export default class extends BaseSeeder {
         episodeId: 1,
         path: '/myfile',
         audioLanguage: 'EN',
+        status: 1,
+      },
+    ])
+
+    Poster.createMany([
+      {
+        titleId: 2,
+        path: 'posters/1051995_iron_man_1.jpg',
+        language: '*',
         status: 1,
       },
     ])
