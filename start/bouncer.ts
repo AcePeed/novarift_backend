@@ -30,12 +30,18 @@ import User from 'App/Models/User'
 | NOTE: Always export the "actions" const from this file
 |****************************************************************
 */
-export const { actions } = Bouncer.define('viewContent', (user: User | null) => {
-  if (user === null) {
-    return Bouncer.deny('Not connected', 404)
+export const { actions } = Bouncer.define(
+  'viewContent',
+  (user: User | null) => {
+    if (!user) {
+      return Bouncer.deny('Not connected', 404)
+    }
+    return true
+  },
+  {
+    allowGuest: true, // 👈
   }
-  return true
-}).define('viewAdmin', (user: User) => {
+).define('viewAdmin', (user: User) => {
   if (user.admin !== true) {
     return Bouncer.deny("You don't have permissions to access that resource", 404)
   }

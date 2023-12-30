@@ -26,8 +26,20 @@ export default class UsersController {
           errorObj[element.field] = true
         })
       } catch (e2) {
-        if (e.responseText.includes('E_INVALID_AUTH_UID')) {
-          response.abort({ auth: false, error: e.responseText }, 401)
+        if (
+          e.responseText.includes('E_INVALID_AUTH_UID') ||
+          e.responseText.includes('E_INVALID_AUTH_PASSWORD')
+        ) {
+          response.abort(
+            {
+              auth: false,
+              error: [
+                { rule: 'notFound', field: 'email', message: "Email doesn't correspond" },
+                { rule: 'notFound', field: 'password', message: "Password doesn't correspond" },
+              ],
+            },
+            401
+          )
         }
         response.abort({ error: 'Internal problem' }, 500)
       }

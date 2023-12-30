@@ -5,9 +5,9 @@ export default class extends BaseSeeder {
   public async run() {
     await User.createMany([
       {
-        fname: 'Mohammed',
-        lname: 'Benmansour',
-        email: 'benmansour.mohammed2002@gmail.com',
+        fname: 'Ace',
+        lname: 'PeaX',
+        email: 'admin@gmail.com',
 
         display: 'AcePeaX',
         login: 'admin',
@@ -17,9 +17,9 @@ export default class extends BaseSeeder {
         superuser: true,
       },
       {
-        fname: 'Mohammed',
-        lname: 'Benmansour',
-        email: 'benmansour.mohammed_test@gmail.com',
+        fname: 'Ace',
+        lname: 'PeaX',
+        email: 'test@gmail.com',
 
         display: 'AcePeaX',
         login: 'test',
