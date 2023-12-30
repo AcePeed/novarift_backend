@@ -6,9 +6,9 @@ export default class FileSystemController {
     await auth.use('web').authenticate()
     await bouncer.authorize('viewContent')
 
-    const file: string = params['path']
+    const file: string = (params['*'] + '').replaceAll(',', '/')
 
-    if (fs.existsSync('./resources/posters/')) {
+    if (!fs.existsSync('./resources/posters/' + file)) {
       response.abort('Resource Not Found', 404)
     }
 
