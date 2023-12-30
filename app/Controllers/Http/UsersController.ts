@@ -13,7 +13,7 @@ export default class UsersController {
           rules.trim(),
           rules.escape(),
         ]),
-        password: schema.string([rules.minLength(9), rules.maxLength(100)]),
+        password: schema.string([rules.minLength(4), rules.maxLength(100)]),
       })
       const payload = await request.validate({ schema: newUserSchema })
 
