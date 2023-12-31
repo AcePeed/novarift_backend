@@ -21,3 +21,30 @@ The environement variables are located in the .env file (it is normally ignored 
 
 
  - IMAGE_HOSTNAME : Hostname from which accept serving images without a need for authentication (usefull if you have a next image optimization)
+
+
+# Launching dev project
+
+## Database
+To start the postgres database, you should have Docker installed.
+Then execute the following command in the project directory : 
+
+```bash
+docker compose up -d
+```
+
+## AdonisJS server
+To start the api server, first install all the dependencies, and then launch the server : 
+> You should have node installed
+```bash
+npm install
+npm run dev
+```
+
+## Migrate the database
+Then you should migrate the database with the following command, and optionally seed it with some development seeders : 
+```bash
+node ace migration:fresh
+# And to seed it
+node ace db:seed
+```
