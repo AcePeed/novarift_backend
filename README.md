@@ -6,10 +6,12 @@ This is an app that wants to copy Netflix :D
 
 ## Postgres Database Structure
 <img src="resources/database_schema.png" alt="drawing" width="400"/>
+
 [DB Diagram Link](https://dbdiagram.io/d/657dbd8a56d8064ca026714e)
 
 
 ## Environment variables
+The environement variables are located in the .env file (it is normally ignored by git), copy its content from the .env.example file.
  - DB_CONNECTION : Database type, the default one is postgres (pg)
  - PG_HOST : Database hostname
  - PG_PORT : Database port
