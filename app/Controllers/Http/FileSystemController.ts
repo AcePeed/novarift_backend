@@ -4,7 +4,7 @@ import fs from 'fs'
 export default class FileSystemController {
   public async poster({ bouncer, request, response, params, auth }: HttpContextContract) {
     if (request.input('from') !== 'localhost') {
-      if (request.hostname() !== 'localhost') {
+      if (request.hostname() !== process.env.IMAGE_HOSTNAME) {
         response.abort('Resource Not Found', 401)
       }
       await auth.use('web').check()

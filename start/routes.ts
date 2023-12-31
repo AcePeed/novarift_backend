@@ -30,3 +30,7 @@ Route.post('user', 'UsersController.login')
 Route.put('user', 'UsersController.register')
 
 Route.get('posters/*', 'FileSystemController.poster')
+
+Route.group(() => {
+  Route.get('/', 'CatalogsController.getCatalog')
+}).prefix('catalog')
