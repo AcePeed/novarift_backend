@@ -33,4 +33,6 @@ Route.get('posters/*', 'FileSystemController.poster')
 
 Route.group(() => {
   Route.get('/', 'CatalogsController.getCatalog')
-}).prefix('catalog')
+})
+  .prefix('catalog')
+  .middleware('ViewContent')
