@@ -5,11 +5,16 @@ export default class ViewContent {
     // code for middleware goes here. ABOVE THE NEXT CALL
     try {
       await auth.check()
-      bouncer.authorize('viewContent')
+      await bouncer.authorize('viewContent')
       await next()
     } catch (e) {
-      console.log('error in mdlware')
-      response.abort({ auth: false, error: e }, 401)
+      if (String(e).includes('E_AUTHORIZATION_FAILURE')) {
+        response.abort({ auth: false, error: e }, 401)
+      } else {
+        response.abort('Internal Server Error. Sorry !(', 500)
+        console.error(e)
+      }
+
       return
     }
   }

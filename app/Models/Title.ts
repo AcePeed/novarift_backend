@@ -48,13 +48,13 @@ export default class Title extends BaseModel {
 
   @beforeSave()
   public static async computeAllKeywords(item: Title) {
-    item.keywords = [
+    let allKeywords = [
       item.name.toLowerCase(),
       item.production_company.toLowerCase(),
       ...item.producers.map((word) => word.toLowerCase()),
       ...item.main_cast.map((word) => word.toLowerCase()),
       ...item.keywords.map((keyword) => keyword.toLowerCase()),
     ]
-    item.allKeywords = item.keywords.join(' ')
+    item.allKeywords = allKeywords.join(' ')
   }
 }

@@ -16,4 +16,16 @@ export default class CatalogsController {
 
     return { auth: true, catalog: titles }
   }
+
+  public async getTitle({ request, response }: HttpContextContract) {
+    const titleId = request.params().title
+    var title
+    try {
+      title = await Title.findOrFail(titleId)
+    } catch (e) {
+      response.status(404)
+      return { auth: true, error: 'not found' }
+    }
+    return title
+  }
 }
