@@ -46,6 +46,28 @@ export default class Title extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
+  public static getUrlFromId(i: number) {
+    i = i + 14
+    i = i * 13
+    i = i + 1245747
+    return i.toString(16)
+  }
+
+  public getUrlFromId() {
+    return Title.getUrlFromId(this.id)
+  }
+
+  public static getIdFromUrl(str: string): number {
+    let i = parseInt(str, 16)
+    i = i - 1245747
+    i = i / 13
+    i = i - 14
+    if (Math.round(i) === i) {
+      return i
+    }
+    return 0
+  }
+
   @beforeSave()
   public static async computeAllKeywords(item: Title) {
     let allKeywords = [

@@ -33,6 +33,7 @@ Route.get('posters/*', 'FileSystemController.poster')
 
 Route.group(() => {
   Route.get('/', 'CatalogsController.getCatalog')
+  Route.get('/test', 'CatalogsController.encrypt')
   Route.get('/:title', 'CatalogsController.getTitle')
 })
   .prefix('catalog')
