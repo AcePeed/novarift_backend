@@ -33,7 +33,19 @@ export default async function SpiderMan1() {
   Poster.createMany([
     {
       titleId: title.id,
-      path: '/posters/spider-mane-1-2002.jpg',
+      path: '/posters/spiderman1-1.jpg',
+      language: '*',
+      status: 1,
+    },
+    {
+      titleId: title.id,
+      path: '/posters/spiderman1-2.jpg',
+      language: '*',
+      status: 1,
+    },
+    {
+      titleId: title.id,
+      path: '/posters/spiderman1-3.png',
       language: '*',
       status: 1,
     },
