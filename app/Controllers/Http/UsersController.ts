@@ -91,7 +91,10 @@ export default class UsersController {
   }
 
   public async check({ auth }: HttpContextContract) {
-    await auth.use('web').authenticate()
-    return { auth: true, isAdmin: auth.user!.admin }
+    const isAuth = await auth.use('web').check()
+    if (!isAuth) {
+      return { auth: false }
+    }
+    return { auth: isAuth, isAdmin: auth.user!.admin }
   }
 }
