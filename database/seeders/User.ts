@@ -8,18 +8,6 @@ export default class extends BaseSeeder {
       {
         fname: 'Ace',
         lname: 'PeaX',
-        email: 'admin@gmail.com',
-
-        display: 'AcePeaX',
-        login: 'admin',
-        password: 'admin',
-
-        admin: true,
-        superuser: true,
-      },
-      {
-        fname: 'Ace',
-        lname: 'PeaX',
         email: 'test@gmail.com',
 
         display: 'AcePeaX',
