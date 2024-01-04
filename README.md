@@ -48,3 +48,8 @@ node ace migration:fresh
 # And to seed it
 node ace db:seed
 ```
+
+### Testing resources
+When seeding for development or testing, you may need some resources that are not in this repository, here is there link.
+
+- [Poster](https://www.mediafire.com/file/h9if7ka7z3udbgg/test_posters.zip/file) -> ./resources/posters
