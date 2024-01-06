@@ -38,3 +38,10 @@ Route.group(() => {
 })
   .prefix('catalog')
   .middleware('ViewContent')
+
+Route.group(() => {
+  Route.get('/', 'AdminsController.main')
+  Route.get('/title', 'AdminsController.getTitlesList')
+})
+  .prefix('admin')
+  .middleware('AdminContent')
