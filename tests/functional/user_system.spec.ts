@@ -3,7 +3,8 @@ import User from 'App/Models/User'
 
 test('login system', async ({ client }) => {
   var response = await client.get('/user')
-  response.assertStatus(401)
+  response.assertStatus(200)
+  response.assertBodyContains({ auth: false })
 
   response = await client.put('/user')
   response.assertStatus(400)
@@ -70,7 +71,7 @@ test('login system', async ({ client }) => {
 
   // ___________________________________________________________________
 
-  response = await client.post('/user') //.json({ email: 'test', password: 'test' })
+  response = await client.post('/user')
   response.assertStatus(400)
 
   response = await client.post('/user').json({ email: 'test2', password: 'test' })
