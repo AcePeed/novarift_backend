@@ -44,6 +44,7 @@ Route.group(() => {
   Route.get('/title', 'AdminsController.getTitlesList')
   Route.get('/title/:title', 'AdminsController.getTitle')
   Route.get('/user', 'AdminsController.getUserList')
+  Route.get('/user/:user', 'AdminsController.getUser')
 })
   .prefix('admin')
   .middleware('AdminContent')

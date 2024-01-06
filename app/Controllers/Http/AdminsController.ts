@@ -14,6 +14,7 @@ export default class AdminsController {
 
     // Still in production
     const filter = (elem: any) => {
+      elem === 1
       elem = filterString
       return true
     }
@@ -38,7 +39,7 @@ export default class AdminsController {
     } else {
       try {
         title = await Title.findOrFail(Title.getIdFromUrl(id))
-        return title
+        return { auth: true, title: title }
       } catch (e) {
         response.abort('Title not found', 404)
       }
@@ -65,5 +66,21 @@ export default class AdminsController {
         return obj
       })
     return { auth: true, userList: userList }
+  }
+
+  public async getUser({ request, response }: HttpContextContract) {
+    let id = request.params().user
+    let user: User
+    if (!id) {
+      response.abort('Need an id to return the title details', 401)
+      return
+    } else {
+      try {
+        user = await User.findOrFail(id)
+        return { auth: true, user: user }
+      } catch (e) {
+        response.abort('Title not found', 404)
+      }
+    }
   }
 }
