@@ -11,7 +11,7 @@ export default async function SpiderMan1() {
     production_company: 'Marvel',
     producers: ['Laura Ziskin', 'Ian Bryce'],
     main_cast: ['Tobey Maguire', 'Kirsten Dunst', 'Willem Dafoe'],
-    keywords: ['fyp'],
+    keywords: ['fyp', 'superhero'],
     isMovie: true,
     status: 1,
   })

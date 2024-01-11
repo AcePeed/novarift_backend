@@ -11,7 +11,7 @@ export default async function IronMan3() {
     production_company: 'Marvel',
     producers: ['Kevin Feige'],
     main_cast: ['Robert Downey Jr.', 'Guy Pearce', 'Gwyneth Paltrow'],
-    keywords: ['fyp'],
+    keywords: ['fyp', 'superhero'],
     isMovie: true,
     status: 1,
   })

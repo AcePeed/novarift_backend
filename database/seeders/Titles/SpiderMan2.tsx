@@ -11,7 +11,7 @@ export default async function SpiderMan2() {
     production_company: 'Marvel',
     producers: ['Laura Ziskin', 'Avi Arad', 'Lorne Orleans'],
     main_cast: ['Tobey Maguire', 'Kirsten Dunst', 'Alfred Molina'],
-    keywords: ['fyp'],
+    keywords: ['fyp', 'superhero'],
     isMovie: true,
     status: 1,
   })

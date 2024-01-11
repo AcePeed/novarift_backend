@@ -11,7 +11,7 @@ export default async function IronMan1() {
     production_company: 'Marvel',
     producers: ['Kevin Feige', 'Avi Arad'],
     main_cast: ['Robert Downey Jr.', 'Jon Favreau', 'Gwyneth Paltrow'],
-    keywords: ['fyp'],
+    keywords: ['fyp', 'superhero'],
     isMovie: true,
     status: 1,
   })

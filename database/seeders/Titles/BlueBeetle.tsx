@@ -11,7 +11,7 @@ export default async function BlueBeetle() {
     production_company: 'DC',
     producers: ['Zev Foreman', 'John Rickard'],
     main_cast: ['Bruna Marquezine', 'Xolo Maridueña'],
-    keywords: ['fyp'],
+    keywords: ['fyp', 'superhero'],
     isMovie: true,
     status: 1,
   })
