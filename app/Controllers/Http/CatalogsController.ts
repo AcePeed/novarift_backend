@@ -29,7 +29,6 @@ export default class CatalogsController {
         throw new Error()
       }
     } catch (e) {
-      console.log('hehe')
       response.status(404)
       return { auth: true, error: 'not found' }
     }
@@ -44,7 +43,6 @@ export default class CatalogsController {
         let episodes = await title.related('episodes').query().where('status', 1).preload('videos')
         obj.watch = episodes[0].videos[0] as Video
         obj.watch = obj.watch.getUrlFromId()
-        console.log(obj)
       }
       return { auth: true, title: obj }
     } catch (e) {

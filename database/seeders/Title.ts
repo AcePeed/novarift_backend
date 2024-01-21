@@ -7,6 +7,7 @@ import IronMan2 from './Titles/IronMan2'
 import IronMan3 from './Titles/IronMan3'
 import SpiderMan2 from './Titles/SpiderMan2'
 import TheFlash from './Titles/TheFlash'
+import Shazam2 from './Titles/Shazam2'
 
 export default class extends BaseSeeder {
   public static environment = ['development', 'testing']
@@ -19,5 +20,6 @@ export default class extends BaseSeeder {
     SpiderMan1()
     SpiderMan2()
     TheFlash()
+    Shazam2()
   }
 }

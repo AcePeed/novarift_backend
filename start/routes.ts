@@ -30,7 +30,7 @@ Route.post('user', 'UsersController.login')
 Route.put('user', 'UsersController.register')
 
 Route.get('posters/*', 'FileSystemController.poster')
-Route.get('video/*', 'FileSystemController.video')
+Route.get('video/:id', 'FileSystemController.video')
 
 Route.group(() => {
   Route.get('/', 'CatalogsController.getCatalog')

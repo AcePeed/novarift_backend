@@ -6,7 +6,6 @@ export default class ViewContent {
     try {
       await auth.check()
       await bouncer.authorize('viewContent')
-      await next()
     } catch (e) {
       if (String(e).includes('E_AUTHORIZATION_FAILURE')) {
         response.abort({ auth: false, error: e }, 401)
@@ -17,5 +16,6 @@ export default class ViewContent {
 
       return
     }
+    await next()
   }
 }
