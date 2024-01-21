@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Title from 'App/Models/Title'
+import Video from 'App/Models/Video'
 
 export default class CatalogsController {
   public async getCatalog({}: HttpContextContract) {
@@ -39,6 +40,12 @@ export default class CatalogsController {
       }
       obj.posters = undefined
       obj.id = title.getUrlFromId()
+      if (obj.is_movie) {
+        let episodes = await title.related('episodes').query().where('status', 1).preload('videos')
+        obj.watch = episodes[0].videos[0] as Video
+        obj.watch = obj.watch.getUrlFromId()
+        console.log(obj)
+      }
       return { auth: true, title: obj }
     } catch (e) {
       console.log(e)

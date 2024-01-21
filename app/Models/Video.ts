@@ -1,6 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
-import Episode from './Episode'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Video extends BaseModel {
   @column({ isPrimary: true })
@@ -21,8 +20,27 @@ export default class Video extends BaseModel {
   @column()
   public status: number
 
-  @hasMany(() => Episode)
-  public posters: HasMany<typeof Episode>
+  public static getUrlFromId(i: number) {
+    i = i + 19
+    i = i * 11
+    i = i + 1645758
+    return i.toString(16)
+  }
+
+  public getUrlFromId() {
+    return Video.getUrlFromId(this.id)
+  }
+
+  public static getIdFromUrl(str: string): number {
+    let i = parseInt(str, 16)
+    i = i - 1645758
+    i = i / 11
+    i = i - 19
+    if (Math.round(i) === i) {
+      return i
+    }
+    return 0
+  }
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

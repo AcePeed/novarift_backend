@@ -41,7 +41,6 @@ export default class FileSystemController {
       return
     }
 
-    console.log(request.headers())
     response.append('Accept-Ranges', 'bytes')
     response.attachment('./resources/videos/' + file, file + 'jpg', 'inline')
     return {}
