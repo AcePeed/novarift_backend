@@ -29,7 +29,7 @@ export default class Episode extends BaseModel {
   public videos: HasMany<typeof Video>
 
   @belongsTo(() => Title)
-  public title: BelongsTo<typeof Title>
+  public titles: BelongsTo<typeof Title>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

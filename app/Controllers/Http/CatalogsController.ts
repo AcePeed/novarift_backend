@@ -49,4 +49,41 @@ export default class CatalogsController {
       console.log(e)
     }
   }
+
+  public async getVideoProperties({ params, response }) {
+    let video: Video
+    try {
+      try {
+        video = await Video.findOrFail(Video.getIdFromUrl(params['id']))
+      } catch (e) {
+        response.status(404)
+        return 'Resource Not Found'
+      }
+
+      if (video.status !== 1) {
+        response.status(403)
+        return 'Resource Not Available'
+      }
+
+      const episodeArr = await video.related('episodes').query().preload('titles')
+      const episode = episodeArr[0]
+      if (episode.status !== 1 || episode.titles.status !== 1) {
+        response.status(403)
+        return 'Resource Not Available'
+      }
+
+      const videoObj = JSON.parse(JSON.stringify(video))
+      videoObj.episode = JSON.parse(JSON.stringify(episode))
+      videoObj.title = JSON.parse(JSON.stringify(episode.titles))
+
+      videoObj.episodes = undefined
+      videoObj.episode.titles = undefined
+
+      return { auth: true, video: videoObj }
+    } catch (e) {
+      response.status(500)
+      console.log(e)
+      return 'Server Error'
+    }
+  }
 }

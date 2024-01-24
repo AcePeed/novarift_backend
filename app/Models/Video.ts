@@ -22,7 +22,7 @@ export default class Video extends BaseModel {
   public status: number
 
   @belongsTo(() => Episode)
-  public episode: BelongsTo<typeof Episode>
+  public episodes: BelongsTo<typeof Episode>
 
   public static getUrlFromId(i: number) {
     i = i + 19

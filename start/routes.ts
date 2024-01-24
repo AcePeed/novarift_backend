@@ -31,10 +31,10 @@ Route.put('user', 'UsersController.register')
 
 Route.get('posters/*', 'FileSystemController.poster')
 Route.get('video/:id', 'FileSystemController.video')
+Route.get('video/:id/details', 'CatalogsController.getVideoProperties')
 
 Route.group(() => {
   Route.get('/', 'CatalogsController.getCatalog')
-  Route.get('/test', 'CatalogsController.encrypt')
   Route.get('/:title', 'CatalogsController.getTitle')
 })
   .prefix('catalog')
