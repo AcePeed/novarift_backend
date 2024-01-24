@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import Episode from './Episode'
 
 export default class Video extends BaseModel {
   @column({ isPrimary: true })
@@ -19,6 +20,9 @@ export default class Video extends BaseModel {
 
   @column()
   public status: number
+
+  @belongsTo(() => Episode)
+  public episode: BelongsTo<typeof Episode>
 
   public static getUrlFromId(i: number) {
     i = i + 19

@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Video from './Video'
+import Title from './Title'
 
 export default class Episode extends BaseModel {
   @column({ isPrimary: true })
@@ -26,6 +27,9 @@ export default class Episode extends BaseModel {
 
   @hasMany(() => Video)
   public videos: HasMany<typeof Video>
+
+  @belongsTo(() => Title)
+  public title: BelongsTo<typeof Title>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
